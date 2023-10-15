@@ -35,49 +35,31 @@ export function findVerbs(words) {
 
 export function getIntegers(nums) {
 	if (!nums) throw new Error('nums is required');
-	const result =[];
-	nums.forEach(element => {
+	return nums.filter(element => {
 		if (element % 1 === 0 ) {
-			result.push((element))
+			return element
 }});
-return result;
+
 
 	}
 
 
 export function getCities(users) {
 	if (!users) throw new Error('users is required');
-	const result = []
-	users.forEach(element => {
-		result.push(element.data.city.displayName)
-	});
+	return users.map((user) => user.data.city.displayName);
 	
-	return result;
 }
 
 export function getSquareRoots(nums) {
 	if (!nums) throw new Error('nums is required');
-	let result = []
-	nums.forEach(element => {
-		result.push(Number(Math.sqrt(element).toFixed(2)));
-	});
-	return result;
+	return nums.map((num) => Number(Math.sqrt(num).toFixed(2)));
+	
 }
 
 export function findSentencesContaining(sentences, str) {
 	if (!sentences) throw new Error('sentences is required');
 	if (!str) throw new Error('str is required');
-	let result =[];
-
-	sentences.forEach(words => {
-		words.toLowerCase()
-		if (words.toLowerCase().includes(str)) {
-			result.push(words)
-		}
-	});
-	return result;
-
-		
+	return sentences.filter((sentence) => sentence.toLowerCase().includes(str));
 	}
 
 
@@ -85,9 +67,9 @@ export function findSentencesContaining(sentences, str) {
 export function getLongestSides(triangles) {
 	if (!triangles) throw new Error('triangles is required');
 	let result = [];
-	triangles.forEach(element => {
+	triangles.map(triangle => {
 		let max = 0;
-		element.forEach(side => {
+		triangle.map(side => {
 			if (side > max) {
 				max = side
 			}
