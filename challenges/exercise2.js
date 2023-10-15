@@ -51,10 +51,17 @@ export function duplicateNumbers(arr1, arr2) {
 	if (arr1 === undefined) throw new Error('arr1 is required');
 	if (arr2 === undefined) throw new Error('arr2 is required');
 	let result = [];
-	arr1.forEach( number =>{
-		if (arr2.includes(number)) {
-			result.push(number);
+	arr1.forEach( numberArray1 => {
+		arr2.forEach(numberArray2 => {
+			if (numberArray1 === numberArray2 && !result.includes(numberArray1)){
+				result.push(numberArray1);
+			} 
+		});
+	});
+	return result.sort();
+
 		}
-	})
-	return result;
-}
+		
+
+	
+
