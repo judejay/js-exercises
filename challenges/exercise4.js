@@ -1,15 +1,11 @@
 export const findNextNumber = (nums, n) => {
-	if (nums === undefined) throw new Error('nums is required');
-	if (n === undefined) throw new Error('n is required');
-	let result = null
-	for (let index = 0; index < nums.length; index++) {
-		const element = nums[index];
-		if (element === n ) {
-			result = nums[index+1]
-		}
-	}
-	return result
+	if (nums === undefined) throw new Error("nums is required");
+  if (n === undefined) throw new Error("n is required");
+  const indexN = nums.indexOf(n);
+  return indexN === -1 || indexN === nums.length - 1 ? null : nums[indexN + 1];
 };
+
+
 
 export const count1sand0s = (str) => {
 	if (str === undefined) throw new Error('str is required');
@@ -40,20 +36,13 @@ export const sumArrays = (arrs) => {
 	return result;};
 
 export const arrShift = (arr) => {
-	if (arr === undefined) throw new Error('arr is required');
-	const result = [];
-	for (let index = 0; index < arr.length; index++) {
-	  const element = arr[index];
-	  if (index === 0) {
-		result[arr.length - 1] = element;
-	  } else if (index + 1 === arr.length) {
-		result[0] = element;
-	  } else {
-		result[index] = element;
-	  }
-	}
-	return result;
+	if (arr === undefined) throw new Error("arr is required");
+	const arrLen = arr.length;
+	if (arrLen > 1) [arr[0], arr[arrLen - 1]] = [arr[arrLen - 1], arr[0]];
+	return arr;
   };
+	
+
 
 export const findNeedle = (haystack, searchTerm) => {
 	if (haystack === undefined) throw new Error('haystack is required');
